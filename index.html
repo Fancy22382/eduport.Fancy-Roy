@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduport - Index 7 Full Layout</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bs-primary: #066efd;
+            --bs-dark: #24292d;
+            --bs-secondary: #747579;
+            --bs-light-blue: #f5f7ff;
+            --bs-orange: #fd7e14;
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            color: var(--bs-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Navbar & Precise Dropdown --- */
+        .navbar { padding: 1.25rem 0; background: #fff; box-shadow: 0 0 40px rgba(0,0,0,0.05); }
+        .nav-link { font-weight: 500; font-size: 16px; color: var(--bs-dark) !important; margin: 0 10px; }
+        .nav-link.active { color: var(--bs-primary) !important; }
+        
+        .dropdown-menu {
+            border: none; box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            border-radius: 12px; padding: 12px; min-width: 230px; margin-top: 15px !important;
+        }
+        .dropdown-item {
+            padding: 10px 15px; font-weight: 500; color: var(--bs-secondary); border-radius: 6px; font-size: 15px;
+        }
+        .dropdown-item:hover, .dropdown-item.active { background-color: #f0f5ff; color: var(--bs-primary); }
+
+        /* --- Hero Section --- */
+        .hero-section { 
+            padding: 100px 0 150px; 
+            background: var(--bs-light-blue); 
+            position: relative; 
+            z-index: 1;
+        }
+        .hero-section::after {
+            content: ""; position: absolute; top: 0; right: 0; width: 45%; height: 100%;
+            background: #eef2ff; z-index: -1; border-radius: 0 0 0 100%;
+        }
+        .hero-title { font-size: 3.8rem; font-weight: 900; line-height: 1.15; margin-bottom: 25px; }
+        .hero-subtitle { font-size: 1.2rem; color: var(--bs-secondary); margin-bottom: 35px; }
+
+        /* --- About Section --- */
+        .section-padding { padding: 90px 0; }
+        .about-title { font-size: 2.8rem; font-weight: 800; margin-bottom: 25px; }
+        .about-list li { margin-bottom: 15px; display: flex; align-items: center; }
+        .about-list i { color: var(--bs-primary); margin-right: 12px; font-size: 14px; }
+
+        /* --- Subject Grid --- */
+        .subject-card {
+            background: #eff6ff; border-radius: 20px; padding: 50px 20px;
+            text-align: center; border: 1px solid transparent; transition: 0.3s; height: 100%;
+        }
+        .subject-card:hover { background: #fff; box-shadow: 0 15px 40px rgba(0,0,0,0.08); transform: translateY(-7px); }
+        .subject-card.active { border-color: var(--bs-primary); background: #fff; }
+        .icon-box { 
+            width: 85px; height: 85px; background: #fff; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            margin: 0 auto 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        /* --- Mobile App Section --- */
+        .mobile-section { padding: 80px 0; background: #fff; }
+
+        /* --- Tutorial Banner --- */
+        .tutorial-banner {
+            background: #fef8f0; border-radius: 30px; padding: 80px 40px; margin-bottom: 90px;
+            background-image: url('https://eduport.webestica.com/assets/images/element/01.svg'); 
+            background-repeat: no-repeat; background-position: right center;
+        }
+
+        /* --- Feedback Section --- */
+        .feedback-card {
+            border: 1px solid #eee; border-radius: 20px; padding: 45px 35px; 
+            background: #fff; text-align: center; height: 100%; position: relative;
+        }
+        .user-avatar { width: 85px; height: 85px; border-radius: 50%; margin-bottom: 20px; border: 4px solid #f5f7ff; object-fit: cover; }
+
+        /* --- Footer --- */
+        footer { padding: 90px 0 30px; background: #fff; border-top: 1px solid #f1f1f1; }
+        .footer-logo { height: 45px; margin-bottom: 30px; }
+        .footer-link { color: var(--bs-secondary); text-decoration: none; display: block; margin-bottom: 12px; font-weight: 500; }
+        .footer-link:hover { color: var(--bs-primary); padding-left: 5px; transition: 0.3s; }
+        .subscribe-box { max-width: 350px; margin-top: 30px; position: relative; }
+        .subscribe-box input { padding: 14px 20px; border-radius: 10px; border: 1px solid #eee; width: 100%; }
+        .subscribe-box button { position: absolute; right: 5px; top: 5px; bottom: 5px; border-radius: 8px; padding: 0 20px; }
+
+        .btn-primary { padding: 15px 35px; font-weight: 700; border-radius: 10px; background: var(--bs-primary); border: none; }
+        .btn-dark { padding: 12px 28px; font-weight: 700; border-radius: 10px; }
+        .btn-blue-soft { background: #eef4ff; color: var(--bs-primary); font-weight: 700; border: none; padding: 12px 25px; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="https://eduport.webestica.com/assets/images/logo.svg" height="45"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown">Demos</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Home Default</a></li>
+                            <li><a class="dropdown-item" href="#">Home Landing</a></li>
+                            <li><a class="dropdown-item" href="#">Home Education</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Course</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item ms-lg-3"><i class="fas fa-moon fs-5"></i></li>
+                    <li class="nav-item ms-lg-4"><button class="btn btn-dark">Buy now</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">We will help you Grow your Knowledge and Skills</h1>
+                    <p class="hero-subtitle">1000+ professional Courses for Your Career</p>
+                    <button class="btn btn-primary btn-lg shadow-lg">Get Started</button>
+                </div>
+                <div class="col-lg-6 text-center mt-5 mt-lg-0">
+                    <img src="https://eduport.webestica.com/assets/images/element/07.svg" class="img-fluid" alt="Hero">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="https://eduport.webestica.com/assets/images/element/05.svg" class="img-fluid" alt="Let us help you">
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <h2 class="about-title">Let Us Help You</h2>
+                    <p class="text-secondary mb-4">How promotion excellent curiosity yet attempted happiness Gay prosperous impression had conviction For every delay death ask to style Me mean able my by in they Extremity.</p>
+                    <ul class="list-unstyled about-list mb-5">
+                        <li><i class="fas fa-arrow-right"></i> Setup and installation takes less time</li>
+                        <li><i class="fas fa-arrow-right"></i> Professional and easy to use software</li>
+                        <li><i class="fas fa-arrow-right"></i> Perfect for any device with pixel-perfect design</li>
+                        <li><i class="fas fa-arrow-right"></i> Setup and installation too fast</li>
+                    </ul>
+                    <button class="btn btn-blue-soft">More about us</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-white">
+        <div class="container text-center">
+            <h2 class="fw-bold display-6 mb-2">Top Listed Subjects</h2>
+            <p class="text-secondary mb-5">Perceived end knowledge certainly day sweetness why cordially</p>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6"><div class="subject-card"><div class="icon-box"><img src="https://eduport.webestica.com/assets/images/element/data-science.svg" width="45"></div><h5 class="fw-bold">Data Science</h5><p class="text-secondary small mb-0">15 Course</p></div></div>
+                <div class="col-lg-3 col-md-6"><div class="subject-card"><div class="icon-box"><img src="https://eduport.webestica.com/assets/images/element/online-coding.svg" width="45"></div><h5 class="fw-bold">Computer Science</h5><p class="text-secondary small mb-0">22 Course</p></div></div>
+                <div class="col-lg-3 col-md-6"><div class="subject-card"><div class="icon-box"><img src="https://eduport.webestica.com/assets/images/element/engineering.svg" width="45"></div><h5 class="fw-bold">Engineering</h5><p class="text-secondary small mb-0">53 Course</p></div></div>
+                <div class="col-lg-3 col-md-6"><div class="subject-card"><div class="icon-box"><img src="https://eduport.webestica.com/assets/images/element/04.svg" width="45"></div><h5 class="fw-bold">Web Development</h5><p class="text-secondary small mb-0">25 Course</p></div></div>
+                <div class="col-lg-3 col-md-6"><div class="subject-card"><div class="icon-box"><img src="https://eduport.webestica.com/assets/images/element/marketing.svg" width="45"></div><h5 class="fw-bold">Marketing</h5><p class="text-secondary small mb-0">20 Course</p></div></div>
+                <div class="col-lg-3 col-md-6"><div class="subject-card"><div class="icon-box"><img src="https://eduport.webestica.com/assets/images/element/medical.svg" width="45"></div><h5 class="fw-bold">Medical</h5><p class="text-secondary small mb-0">10 Course</p></div></div>
+                <div class="col-lg-3 col-md-6"><div class="subject-card active"><div class="icon-box"><img src="https://eduport.webestica.com/assets/images/element/04.svg" width="45"></div><h5 class="fw-bold text-primary">Architecture</h5><p class="text-secondary small mb-0">30 Course</p></div></div>
+                <div class="col-lg-3 col-md-6"><div class="subject-card"><div class="icon-box"><img src="https://eduport.webestica.com/assets/images/element/art.svg" width="45"></div><h5 class="fw-bold">Art & Design</h5><p class="text-secondary small mb-0">35 Course</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mobile-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold mb-4">Learn on your mobile Anytime</h2>
+                    <p class="text-secondary mb-5">How promotion excellent curiosity yet attempted happiness Gay prosperous impression had conviction.</p>
+                    <div class="d-flex gap-3">
+                        <img src="https://eduport.webestica.com/assets/images/client/google-play.svg" height="50">
+                        <img src="https://eduport.webestica.com/assets/images/client/app-store.svg" height="50">
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center mt-5 mt-lg-0">
+                    <img src="https://eduport.webestica.com/assets/images/element/06.svg" class="img-fluid" alt="Mobile App">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container text-center">
+        <div class="tutorial-banner">
+            <h6 class="text-secondary fw-bold text-uppercase small mb-3">Get a Free Tutorial of</h6>
+            <h2 class="display-5 fw-bold mb-5">Exclusive Bootstrap 5 Responsive Website Coding Course</h2>
+            <button class="btn btn-warning px-5 py-3 fw-bold text-white" style="background: var(--bs-orange); border:none;">Get a free trial</button>
+        </div>
+    </div>
+
+    <section class="section-padding">
+        <div class="container text-center">
+            <h2 class="fw-bold display-6 mb-2">Our Customer Feedback</h2>
+            <p class="text-secondary mb-5">Perceived end knowledge certainly day sweetness why cordially</p>
+            <div class="row g-4">
+                <div class="col-lg-4"><div class="feedback-card"><img src="https://eduport.webestica.com/assets/images/avatar/01.jpg" class="user-avatar"><h5>Carolyn Ortiz</h5><p class="text-secondary">" Newspaper up its enjoyment agreeable depending. Timed voice share led him to widen. "</p></div></div>
+                <div class="col-lg-4"><div class="feedback-card"><img src="https://eduport.webestica.com/assets/images/avatar/02.jpg" class="user-avatar"><h5>Billy Vasquez</h5><p class="text-secondary">" Moonlight newspaper up its enjoyment agreeable depending. Timed voice share led him to widen. "</p></div></div>
+                <div class="col-lg-4"><div class="feedback-card"><img src="https://eduport.webestica.com/assets/images/avatar/03.jpg" class="user-avatar"><h5>Lori Stevens</h5><p class="text-secondary">" At weddings believed laughing. Newspaper up its enjoyment agreeable depending. "</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <img src="https://eduport.webestica.com/assets/images/logo.svg" class="footer-logo">
+                    <p class="text-secondary">Eduport education theme, built specifically for the education centers which is dedicated to teaching and involve learners.</p>
+                    <div class="subscribe-box">
+                        <input type="text" placeholder="Enter your email address">
+                        <button class="btn btn-dark">Subscribe</button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2 ms-lg-auto">
+                    <h6 class="fw-bold mb-4">Company</h6>
+                    <a href="#" class="footer-link">Blog</a>
+                    <a href="#" class="footer-link">About</a>
+                    <a href="#" class="footer-link">Contact us</a>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h6 class="fw-bold mb-4">Community</h6>
+                    <a href="#" class="footer-link">Become instructor</a>
+                    <a href="#" class="footer-link">Pricing</a>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h6 class="fw-bold mb-4">Social</h6>
+                    <a href="#" class="footer-link"><i class="fab fa-facebook me-2"></i> Facebook</a>
+                    <a href="#" class="footer-link"><i class="fab fa-instagram me-2"></i> Instagram</a>
+                </div>
+            </div>
+            <hr class="mt-5 mb-4">
+            <div class="d-md-flex justify-content-between align-items-center text-center small text-secondary">
+                <p class="mb-0">Copyrights ©2026 Eduport. Build by Webestica.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
